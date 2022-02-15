@@ -16,31 +16,41 @@ SELECT * FROM animals WHERE weight_kg BETWEEN '10.4' AND '17.3';
 
 -- Transaction update species column to unspecified and rollback
 BEGIN;
-
-UPDATE animals
-SET species = 'unspecified';
-
+  UPDATE animals
+  SET species = 'unspecified';
 ROLLBACK;
 
 -- Transaction update species column to pokemon or digimon and commit
 BEGIN;
+  UPDATE animals
+  SET species = 'digimon'
+  WHERE name LIKE '%mon';
 
-UPDATE animals
-SET species = 'digimon'
-WHERE name LIKE '%mon';
-
-UPDATE animals
-SET species = 'pokemon'
-WHERE name NOT LIKE '%mon';
-
+  UPDATE animals
+  SET species = 'pokemon'
+  WHERE name NOT LIKE '%mon';
 COMMIT;
 
 -- Transaction delete all animals and rollback
 BEGIN;
-
-DELETE FROM animals
-
+  DELETE FROM animals
 ROLLBACK;
+
+-- Transaction that updates negative weights
+BEGIN;
+	DELETE FROM animals WHERE date_of_birth > '2022-01-01';
+
+	SAVEPOINT DELETE_ALL_ANIMALS_SAVEPOINT;
+
+	UPDATE animals
+	SET weight_kg = weight_kg * -1;
+
+	ROLLBACK TO DELETE_ALL_ANIMALS_SAVEPOINT;
+
+	UPDATE animals
+	SET weight_kg = weight_kg * -1
+	WHERE weight_kg < 0;
+COMMIT;
 
 
 
