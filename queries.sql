@@ -69,7 +69,13 @@ MIN(weight_kg) AS "Min Weight",
 MAX(weight_kg) AS "Max Weight" 
 FROM animals 
 GROUP BY species;
-
+-- Display the average number of escape attempts per animal type 
+-- of those born between 1990 and 2000
+SELECT species, 
+AVG(escape_attempts) AS "Average Escape Attempts"
+FROM animals 
+Where date_of_birth BETWEEN '1990-01-01' AND '2000-12-31'
+GROUP BY species;
 
 
 
