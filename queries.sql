@@ -14,13 +14,28 @@ SELECT * FROM animals WHERE name NOT IN('Gabumon');
 
 SELECT * FROM animals WHERE weight_kg BETWEEN '10.4' AND '17.3';
 
--- Transaction update the animals table by setting the species column to unspecified
+-- Transaction update species column to unspecified and rollback
 BEGIN;
 
 UPDATE animals
 SET species = 'unspecified';
 
 ROLLBACK;
+
+-- Transaction update species column to pokemon or digimon and commit
+BEGIN;
+
+UPDATE animals
+SET species = 'digimon'
+WHERE name LIKE '%mon';
+
+UPDATE animals
+SET species = 'pokemon'
+WHERE name NOT LIKE '%mon';
+
+COMMIT;
+
+
 
 
 
