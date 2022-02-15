@@ -58,7 +58,7 @@ SELECT COUNT(*) AS "Animals Count" FROM animals;
 SELECT COUNT(*) AS "Animals Count" FROM animals 
 WHERE escape_attempts = 0;
 -- Select average weight of all animals
-SELECT AVG(weight_kg) AS "Average Weight" FROM animals; 
+SELECT CONCAT(ROUND(AVG(weight_kg), 2), ' kg') AS "Average Weight" FROM animals; 
 
 
 
