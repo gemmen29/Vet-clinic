@@ -14,5 +14,13 @@ SELECT * FROM animals WHERE name NOT IN('Gabumon');
 
 SELECT * FROM animals WHERE weight_kg BETWEEN '10.4' AND '17.3';
 
+-- Transaction update the animals table by setting the species column to unspecified
+BEGIN;
+
+UPDATE animals
+SET species = 'unspecified';
+
+ROLLBACK;
+
 
 
