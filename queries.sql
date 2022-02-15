@@ -52,6 +52,9 @@ BEGIN;
 	WHERE weight_kg < 0;
 COMMIT;
 
+-- Select all animals numbers
+SELECT COUNT(*) AS "Animals Count" FROM animals;
+
 
 
 
