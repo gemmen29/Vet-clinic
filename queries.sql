@@ -35,6 +35,13 @@ WHERE name NOT LIKE '%mon';
 
 COMMIT;
 
+-- Transaction delete all animals and rollback
+BEGIN;
+
+DELETE FROM animals
+
+ROLLBACK;
+
 
 
 
