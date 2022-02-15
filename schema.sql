@@ -1,6 +1,6 @@
-create database vet_clinic;
+CREATE DATABASE vet_clinic;
 
-create table animals (
+CREATE TABLE animals (
 	id INT NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 	name VARCHAR(20),
 	date_of_birth DATE,
@@ -8,3 +8,6 @@ create table animals (
 	neutered BOOLEAN,
 	weight_kg DECIMAL
 );
+
+ALTER TABLE animals
+ADD COLUMN species varchar(20);
