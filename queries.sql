@@ -63,6 +63,12 @@ SELECT CONCAT(ROUND(AVG(weight_kg), 2), ' kg') AS "Average Weight" FROM animals;
 SELECT * FROM animals 
 WHERE escape_attempts 
 IN (SELECT MAX(escape_attempts) FROM animals); 
+-- Display the minimum and maximum weight of each type of animal
+SELECT species, 
+MIN(weight_kg) AS "Min Weight", 
+MAX(weight_kg) AS "Max Weight" 
+FROM animals 
+GROUP BY species;
 
 
 
