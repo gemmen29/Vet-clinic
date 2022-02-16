@@ -88,3 +88,10 @@ SELECT animals.name AS "Animals Name" FROM animals
 INNER JOIN species 
 ON animals.species_id = species.id
 WHERE species.name = 'Pokemon';
+
+-- List all owners and their animals, and include those that don't own any animal
+SELECT owners.full_name AS "Owner Name",
+animals.name AS "Animals Name"
+FROM owners 
+LEFT JOIN animals 
+ON animals.owner_id = owners.id;
