@@ -18,4 +18,5 @@ INSERT INTO owners (full_name, age)
 VALUES 
 	('Sam Smith', 34),
 	('Jennifer Orwell', 19),
-	('Bob', 19);
+	('Bob', 19),
+	('Melody Pond', 77);
