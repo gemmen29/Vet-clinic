@@ -47,3 +47,7 @@ WHERE name in ('Gabumon', 'Pikachu');
 UPDATE animals
 SET owner_id = 3
 WHERE name in ('Devimon', 'Plantmon');
+
+UPDATE animals
+SET owner_id = 4
+WHERE name in ('Charmander', 'Squirtle', 'Blossom');
