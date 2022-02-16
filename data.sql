@@ -25,4 +25,5 @@ VALUES
 
 INSERT INTO species (name)  
 VALUES 
-	('Pokemon');
+	('Pokemon'),
+	('Digimon');
