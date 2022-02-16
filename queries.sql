@@ -77,6 +77,10 @@ FROM animals
 Where date_of_birth BETWEEN '1990-01-01' AND '2000-12-31'
 GROUP BY species;
 
-
+-- get animals belong to Melody Pond
+SELECT animals.name AS "Animals Name" FROM animals 
+INNER JOIN owners 
+ON animals.owner_id = owners.id
+WHERE owners.full_name = 'Melody Pond';
 
 
