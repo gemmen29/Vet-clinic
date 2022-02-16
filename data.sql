@@ -13,3 +13,7 @@ VALUES
 	('Angemon', '2005-06-12', 1, true, -45),
 	('Boarmon', '2005-06-07', 7, true, 20.4),
 	('Blossom', '1998-08-13', 3, true, 17);
+
+INSERT INTO owners (full_name, age)  
+VALUES 
+	('Sam Smith', 34);
