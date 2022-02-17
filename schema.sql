@@ -33,3 +33,27 @@ ADD CONSTRAINT fk_animals_species FOREIGN KEY(species_id) REFERENCES species(id)
 ALTER TABLE animals
 ADD COLUMN owner_id INT,
 ADD CONSTRAINT fk_animals_owners FOREIGN KEY(owner_id) REFERENCES owners(id);
+
+CREATE TABLE vets (
+	id INT NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	name VARCHAR(255),
+	age INT,
+	date_of_graduation DATE
+);
+
+CREATE TABLE specializations (
+	species_id INT, 
+	vets_id INT,
+	FOREIGN KEY (species_id) REFERENCES species (id) ON DELETE RESTRICT ON UPDATE CASCADE,
+	FOREIGN KEY (vets_id) REFERENCES vets (id) ON DELETE RESTRICT ON UPDATE CASCADE,
+	PRIMARY KEY (species_id, vets_id)
+);
+
+CREATE TABLE visits (
+	id INT NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	animals_id INT, 
+	vets_id INT,
+	date_of_the_visits DATE,
+	FOREIGN KEY (animals_id) REFERENCES animals (id) ON DELETE RESTRICT ON UPDATE CASCADE,
+	FOREIGN KEY (vets_id) REFERENCES vets (id) ON DELETE RESTRICT ON UPDATE CASCADE
+);
