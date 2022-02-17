@@ -216,3 +216,18 @@ ON specializations.vets_id = vets.id
 LEFT JOIN species
 ON species.id = specializations.species_id
 WHERE species IS NULL;
+
+-- specialty should Maisy Smith consider getting
+SELECT species.name AS "Species Name",
+COUNT(species.name) AS "Number of visits"
+FROM vets
+INNER JOIN visits
+ON visits.vets_id = vets.id
+INNER JOIN animals
+ON animals.id = visits.animals_id
+INNER JOIN species
+ON species.id = animals.species_id
+WHERE vets.name = 'Maisy Smith'
+GROUP BY species.name
+ORDER BY COUNT(species.name) DESC
+LIMIT 1;
