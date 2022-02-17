@@ -60,4 +60,5 @@ INSERT INTO vets (name, age, date_of_graduation)
 VALUES
 	('William Tatcher', 45, '2000-4-23'),
 	('Maisy Smith', 26, '2013-1-17'),
-	('Stephanie Mendez', 64, '1981-5-4');
+	('Stephanie Mendez', 64, '1981-5-4'),
+	('Jack Harkness', 38, '2008-6-8');
