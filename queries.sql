@@ -205,3 +205,14 @@ INNER JOIN vets
 ON visits.vets_id = vets.id
 ORDER BY visits.date_of_the_visits DESC
 LIMIT 1;
+
+-- How many visits were with a vet that did not specialize in that animal's species
+SELECT COUNT(visits)
+FROM vets
+LEFT JOIN visits
+ON visits.vets_id = vets.id
+LEFT JOIN specializations
+ON specializations.vets_id = vets.id
+LEFT JOIN species
+ON species.id = specializations.species_id
+WHERE species IS NULL;
