@@ -171,3 +171,13 @@ INNER JOIN vets
 ON visits.vets_id = vets.id
 WHERE vets.name = 'Stephanie Mendez'
 AND visits.date_of_the_visits BETWEEN '2020-04-01' AND '2020-08-30';
+
+-- What animal has the most visits to vets
+SELECT animals.name AS "Animal Name",
+COUNT(animals) AS "Animals Count"
+FROM animals 
+INNER JOIN visits
+ON animals.id = visits.animals_id
+GROUP BY animals.name
+ORDER BY COUNT(animals) DESC
+LIMIT 1;
