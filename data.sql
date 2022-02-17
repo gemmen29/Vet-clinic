@@ -55,3 +55,7 @@ WHERE name in ('Charmander', 'Squirtle', 'Blossom');
 UPDATE animals
 SET owner_id = 5
 WHERE name in ('Angemon', 'Boarmon');
+
+INSERT INTO vets (name, age, date_of_graduation) 
+VALUES
+	('William Tatcher', 45, '2000-4-23');
