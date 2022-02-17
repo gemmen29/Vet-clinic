@@ -154,9 +154,10 @@ WHERE vets.name = 'Stephanie Mendez';
 
 -- List all vets and their specialties, including vets with no specialties
 SELECT vets.name AS "Vets Name",
-species.name AS "Species Name"
+STRING_AGG(species.name, ' , ') AS "Species Name"
 FROM vets
 LEFT JOIN specializations
 ON vets.id = specializations.vets_id
 LEFT JOIN species
-ON species.id = specializations.species_id; 
+ON species.id = specializations.species_id
+GROUP BY vets.name; 
