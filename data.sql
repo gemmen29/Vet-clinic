@@ -59,4 +59,5 @@ WHERE name in ('Angemon', 'Boarmon');
 INSERT INTO vets (name, age, date_of_graduation) 
 VALUES
 	('William Tatcher', 45, '2000-4-23'),
-	('Maisy Smith', 26, '2013-1-17');
+	('Maisy Smith', 26, '2013-1-17'),
+	('Stephanie Mendez', 64, '1981-5-4');
