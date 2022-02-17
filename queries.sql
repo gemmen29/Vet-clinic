@@ -130,3 +130,15 @@ INNER JOIN owners
 ON animals.owner_id = owners.id
 GROUP BY owners.full_name
 ORDER BY COUNT(animals.id) DESC LIMIT 1;
+
+-- The last animal seen by William Tatche
+SELECT animals.name AS "Animal Name",
+visits.date_of_the_visits AS "Date of visits"
+FROM animals 
+INNER JOIN visits
+ON animals.id = visits.animals_id
+INNER JOIN vets
+ON visits.vets_id = vets.id
+WHERE vets.name = 'William Tatcher'
+ORDER BY visits.date_of_the_visits DESC
+LIMIT 1; 
