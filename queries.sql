@@ -207,7 +207,7 @@ ORDER BY visits.date_of_the_visits DESC
 LIMIT 1;
 
 -- How many visits were with a vet that did not specialize in that animal's species
-SELECT COUNT(visits)
+SELECT COUNT(visits) AS "Number of visits"
 FROM vets
 LEFT JOIN visits
 ON visits.vets_id = vets.id
