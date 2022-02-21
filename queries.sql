@@ -231,3 +231,6 @@ WHERE vets.name = 'Maisy Smith'
 GROUP BY species.name
 ORDER BY COUNT(species.name) DESC
 LIMIT 1;
+
+-- Analyze animals_id
+EXPLAIN ANALYZE SELECT COUNT(*) FROM visits where animals_id = 4;
