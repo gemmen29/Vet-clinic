@@ -234,3 +234,6 @@ LIMIT 1;
 
 -- Analyze animals_id
 EXPLAIN ANALYZE SELECT COUNT(*) FROM visits where animals_id = 4;
+
+-- Analyze vets_id
+EXPLAIN ANALYZE SELECT * FROM visits where vets_id = 2;
