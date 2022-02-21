@@ -92,3 +92,12 @@ VALUES
 	((SELECT id FROM animals WHERE name = 'Boarmon'), (SELECT id FROM vets WHERE name = 'Maisy Smith'), '2020-8-3'),
 	((SELECT id FROM animals WHERE name = 'Blossom'), (SELECT id FROM vets WHERE name = 'Stephanie Mendez'), '2020-8-24'),
 	((SELECT id FROM animals WHERE name = 'Blossom'), (SELECT id FROM vets WHERE name = 'William Tatcher'), '2021-1-11');
+
+INSERT INTO visits (animals_id, vets_id, date_of_the_visits) 
+	SELECT * FROM (SELECT id FROM animals) animal_ids, 
+	(SELECT id FROM vets) vets_ids, 
+	generate_series('1980-01-01'::timestamp, '2021-01-01', '4 hours') visit_timestamp;
+
+INSERT INTO owners (full_name, email) 
+	SELECT 'Owner ' || generate_series(1,2500000), 'owner_' || generate_series(1,2500000) || '@mail.com';
+
