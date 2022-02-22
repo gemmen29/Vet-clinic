@@ -2,6 +2,9 @@
 
 > In this project I used a relational database(postgresql) to create the data structure for a vet clinic
 
+# Schema
+![screenshot](./Schema.PNG)
+
 ## Getting Started
 
 This repository includes files with plain SQL that can be used to recreate a database:
