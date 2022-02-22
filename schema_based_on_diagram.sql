@@ -13,3 +13,12 @@ CREATE TABLE treatments
 	type VARCHAR(255),
 	name VARCHAR(255)
 );
+
+CREATE TABLE medical_histories
+(
+	id INT NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	admitted_at TIMESTAMP,
+	patient_id INT,
+	status VARCHAR(255),
+	FOREIGN KEY (patient_id) REFERENCES patients(id) ON DELETE RESTRICT ON UPDATE CASCADE
+);
