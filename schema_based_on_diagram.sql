@@ -22,3 +22,14 @@ CREATE TABLE medical_histories
 	status VARCHAR(255),
 	FOREIGN KEY (patient_id) REFERENCES patients(id) ON DELETE RESTRICT ON UPDATE CASCADE
 );
+
+CREATE TABLE invoices
+(
+	id INT NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	total_amount DECIMAL,
+	generated_at TIMESTAMP,
+	payed_at TIMESTAMP,
+	status VARCHAR(255),
+	medical_history_id INT,
+	FOREIGN KEY (medical_history_id) REFERENCES medical_histories(id) ON DELETE RESTRICT ON UPDATE CASCADE
+);
