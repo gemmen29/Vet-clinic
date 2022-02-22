@@ -54,3 +54,5 @@ CREATE TABLE medical_history_treatment
 	FOREIGN KEY (medical_history_id) REFERENCES medical_histories(id) ON DELETE RESTRICT ON UPDATE CASCADE,
 	FOREIGN KEY (treatment_id) REFERENCES treatments(id) ON DELETE RESTRICT ON UPDATE CASCADE
 );
+
+CREATE INDEX medical_histories_patient_id_idx ON medical_histories(patient_id);
